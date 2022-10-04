@@ -9,6 +9,8 @@ const spanElDays = document.querySelector('span[data-days]');
 const spanElHours = document.querySelector('span[data-hours]');
 const spanElMin = document.querySelector('span[data-minutes]');
 const spanElSec = document.querySelector('span[data-seconds]');
+const spanValue = document.querySelectorAll('.value')
+console.log(spanValue);
 // console.group(timerDiv);
 let userDate = null;
 
@@ -40,6 +42,7 @@ const options = {
     console.log(selectedDates[0]);
     if (selectedDates[0] < Date.now()) {
       Notiflix.Notify.failure('Please choose a date in the future');
+      btnStart.disabled = true;
       userDate = new Date();
     } else {
       btnStart.disabled = false;
@@ -72,10 +75,9 @@ class Timer {
       spanElHours.textContent = convertTime.hours;
       spanElDays.textContent = convertTime.days;
       // // console.log(currentTime);
-         if (nextTime <= 0) {
+         if (nextTime <= 900) {
            clearInterval(this.timerId);
-           this.isActive = false;
-           this.timerId = null;
+           spanValue.textContent = `00`
          }
     }, 1000);
   }
@@ -89,3 +91,4 @@ btnStart.addEventListener('click', () => {
   timer.start();
 });
 // console.log(message)
+
