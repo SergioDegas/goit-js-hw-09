@@ -75,9 +75,10 @@ class Timer {
       spanElHours.textContent = convertTime.hours;
       spanElDays.textContent = convertTime.days;
       // // console.log(currentTime);
-         if (nextTime <= 900) {
+         if (nextTime <= 0) {
            clearInterval(this.timerId);
-           spanValue.textContent = `00`
+           return
+           
          }
     }, 1000);
   }
