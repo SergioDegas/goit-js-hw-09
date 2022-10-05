@@ -69,17 +69,16 @@ class Timer {
 
       const convertTime = convertMs(nextTime);
       console.log(nextTime);
-      // console.log(delay2);
+
+         if (nextTime <= 0) {
+           clearInterval(this.timerId);
+           return;
+         }
+     
       spanElSec.textContent = convertTime.seconds;
       spanElMin.textContent = convertTime.minutes;
       spanElHours.textContent = convertTime.hours;
       spanElDays.textContent = convertTime.days;
-      // // console.log(currentTime);
-         if (nextTime <= 0) {
-           clearInterval(this.timerId);
-           return
-           
-         }
     }, 1000);
   }
 }
