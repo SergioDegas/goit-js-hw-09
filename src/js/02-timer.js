@@ -72,7 +72,7 @@ class Timer {
 
          if (nextTime <= 0) {
            clearInterval(this.timerId);
-           Notiflix.Notify.success('Дякую за підказку)');
+    
            return;
          }
      
